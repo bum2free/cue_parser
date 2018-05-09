@@ -1,0 +1,5 @@
+project(cue_parser)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g")
+file(GLOB srcs "src/*.cpp")
+add_executable(cue_parser ${srcs})
+target_include_directories(cue_parser PRIVATE "include/")
