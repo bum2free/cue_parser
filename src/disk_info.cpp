@@ -22,7 +22,7 @@ int CommonInfo::parse(std::string &line)
     std::string key = line_2.substr(0, end_index);
     start_index = line_2.find_first_not_of(" ", end_index);
     std::string val_1 = line_2.substr(start_index, line_2.size() - start_index); 
-    //std::cout << key << ": " << val_1 << std::endl;
+    //std::cout << "val_1: " << val_1 << std::endl;
 
     /*
      * Process value:
@@ -31,11 +31,11 @@ int CommonInfo::parse(std::string &line)
      */
     if (key == "PERFORMER")
     {
-        performer = val_1.substr(1, val_1.size() - 2);
+        performer = val_1.substr(1, val_1.find_last_not_of("\"") - 2);
     }
     else if (key == "TITLE")
     {
-        title = val_1.substr(1, val_1.size() - 2);
+        title = val_1.substr(1, val_1.find_last_not_of("\"") - 2);
     }
     else if (key == "FILE")
     {
