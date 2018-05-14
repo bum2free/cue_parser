@@ -28,6 +28,8 @@ public:
             std::vector<TrackInfo> *p_tracks);
     std::string index;
     std::vector<std::string> time_index;
+    int start_time = -1; //in second
+    int duration = 0;
 };
 
 class DiscInfo : public CommonInfo
@@ -39,5 +41,8 @@ public:
     }
     int parse_file(const std::string &file_name);
     std::vector<TrackInfo> tracks;
+private:
+    int process_time(void);
+    int parse_time_index(const std::string &index);
 };
 #endif
